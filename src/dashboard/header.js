@@ -1,23 +1,33 @@
-import React, {Component,useEffect, useState } from 'react';
-import axios from 'axios'; 
+import React, { Component, useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 
 function Header() {
 
-  const [userType, setUserType] = useState("Admin");
+  const [username, setusername] = useState("");
+  const [usertype, setusertype] = useState("");
+
 
   useEffect(() => {
-    fetch('/getUserInfo')
-      .then(response => response.json())
-      .then(data => {
-        // Assuming the response contains the user type
-        setUserType(data.userType);
-      })
-      .catch(error => {
-        console.error('Error fetching user information:', error);
-      });
+    const storedName = window.localStorage.getItem('username');
+    if (storedName) {
+      setusername(storedName);
+    }
   }, []);
+  useEffect(() => {
+    const storedType = window.localStorage.getItem('usertype');
+    if (storedType) {
+      setusertype(storedType);
+    }
+  }, []);
+
+  function logout(){
+    window.localStorage.clear();
+    window.location.href = "./sign-in";
+  }
+
+
 
   const [photoUrl, setPhotoUrl] = useState('D:/_Bala_project/login-registration-main/src/assets/profile_bg.jpg');
 
@@ -40,26 +50,13 @@ function Header() {
     fetchPhoto(); // Call the fetch function when the component mounts
   }, []);
 
-  const [username, setUsername] = useState("UserName");
-
-  useEffect(() => {
-    fetch('/getUserInfo')
-      .then(response => response.json())
-      .then(data => {
-        // Assuming the response contains the user type
-        setUsername(data.username);
-      })
-      .catch(error => {
-        console.error('Error fetching user information:', error);
-      });
-  }, []);
 
 
   return (
     <div >
       <header className='header'>
         <div>
-          {userType === 'Admin' ?
+          {usertype === 'faculty' ?
             (
               <nav classname="storke">
                 <ul>
@@ -69,7 +66,7 @@ function Header() {
                   <li><a href="#">My room</a></li>
                 </ul>
               </nav>
-            ) 
+            )
             :
             (
               <nav>
@@ -84,12 +81,18 @@ function Header() {
         </div>
         <div className="round-photo-frame">
           {/* Display the fetched photo */}
-          <img src={photoUrl} alt="User" />
+
         </div>
-        <div class="userdetails">
-          <p class="username">{username}</p>
-          <p class="usertype">{userType}</p> 
-              
+        <div class="user-details">
+
+           <div>
+            <p class="username">{username}</p>
+          
+            <p class="usertype">{usertype}</p>
+          </div>
+          <img src={photoUrl} alt="User" />
+         
+          <button className='logout' >Logout</button>
         </div>
       </header>
 

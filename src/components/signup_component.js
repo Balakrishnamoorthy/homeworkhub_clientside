@@ -16,7 +16,7 @@ export default function SignUp() {
       e.preventDefault();
 
       console.log(name, rollnum, phone, password);
-      fetch("http://localhost:5000/register", {
+      fetch("http://localhost:3004/register", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -35,10 +35,11 @@ export default function SignUp() {
         .then((res) => res.json())
         .then((data) => {
           console.log(data, "userRegister");
-          if (data.status == "ok") {
-            alert("Registration Successful");
+          if (data.success == "true") {
+            alert(data.message);
+            window.location.href = "./sign-in";
           } else {
-            alert("Something went wrong");
+            alert(data.message);
           }
         });
     }

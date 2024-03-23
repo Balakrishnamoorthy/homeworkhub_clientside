@@ -8,7 +8,7 @@ export default function Login() {
     e.preventDefault();
 
     console.log(rollnum, password);
-    fetch("http://localhost:5000/login-user", {
+    fetch("http://localhost:3004/login", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -24,12 +24,21 @@ export default function Login() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "userRegister");
-        if (data.status == "ok") {
-          alert("login successful");
-          window.localStorage.setItem("token", data.data);
-          window.localStorage.setItem("loggedIn", true);
+        if (data.success == "true") {
+          alert(data.message);
+          window.localStorage.setItem("token", data.result.token);
+          window.localStorage.setItem("username", data.result.user.name);
+          window.localStorage.setItem("rollnum", data.result.user.rollnum);
+          window.localStorage.setItem("usertype", data.result.user.usertype);
 
-          window.location.href = "./userDetails";
+          // window.localStorage.setItem("loggedIn", true);
+          console.log(data.result);
+
+
+          window.location.href = "./dashboard";
+        }
+        else{
+          alert(data.message);
         }
       });
   }

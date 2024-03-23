@@ -1,21 +1,19 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+// import createroom from './room-button/createroom';
 
 function Dashbody() {
-    const [userType, setUserType] = useState("Admin");
+    const [usertype, setusertype] = useState('');
 
     useEffect(() => {
-        fetch('/getUserInfo')
-            .then(response => response.json())
-            .then(data => {
-                // Assuming the response contains the user type
-                setUserType(data.userType);
-            })
-            .catch(error => {
-                console.error('Error fetching user information:', error);
-            });
-    }, []);
+        const storedType = window.localStorage.getItem('usertype');
+        if (storedType) {
+          setusertype(storedType);
+        }
+      }, []);
+
     return (
-        <div>
+        <div className='dashbody'>
             <div className="discription">
                 <p className='dis-heading'> Welcome to our Homework Hub for Students!</p>
                 <p>
@@ -25,30 +23,30 @@ function Dashbody() {
                 </p>
             </div>
             <div className="room-button">
-                {userType === 'Admin' ?
+                {usertype === 'Admin' ?
                     (
                         <div>
-                            <button type="submit" classname="create-room">
-                                Create Room
+                            <button type="submit" classname="createroom">
+                            <Link className="link" to="createroom">Create Room</Link>
                             </button>
-                            <button type='submit' classname="join-room">
-                                Join Room
+                            <button type='submit' classname="joinroom">
+                            <Link className="link" to="joinroom">Join Room</Link>
                             </button>
-                            <button type='submit' classname="my-room">
-                                My Room
+                            <button type='submit' classname="myroom">
+                            <Link className="link" to="myroom">My Room</Link>
                             </button>
                         </div>
                     ) :
                     (
                         <div>
-                            {/*  <button type="submit" classname="create-room">
+                            {/*  <button type="submit" classname="createroom">
                                Create Room
                              </button> */}
-                            <button type='submit' classname="join-room">
-                                Join Room
+                            <button type='submit' classname="joinroom">
+                            <Link className="link" to="joinroom">Join Room</Link>
                             </button>
-                            <button type='submit' classname="my-room">
-                                My Room
+                            <button type='submit' classname="myroom">
+                            <Link className="link" to="myroom">My Room</Link>
                             </button>
                         </div>
 
