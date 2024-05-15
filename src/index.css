@@ -3,13 +3,13 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   /* background: #1c8ef9 !important; */
   min-height: 100vh;
   /* display: flex; */
   font-weight: 400;
   font-family: "Fira Sans", sans-serif;
-  /* background-image: url(D:\_Bala_project\login-registration-main\src\assets\BG-image.jpg); */
 }
 
 h1,
@@ -31,11 +31,11 @@ html,
 .auth-wrapper {
   width: 100%;
   height: 100%;
-  background-image: url(https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
   background-size: cover;
   /* margin-top: -70px; */
   background-repeat: no-repeat;
 }
+  
 
 .navbar-light {
   background-color: #ffffff;
@@ -47,6 +47,8 @@ html,
   justify-content: center;
   flex-direction: column;
   text-align: left;
+  background-image: url('https://img.freepik.com/free-photo/flat-lay-notebook-pencils-arrangement_23-2148565082.jpg?w=740&t=st=1711972524~exp=1711973124~hmac=b21f6c37049d276096d6146694d4965b6ce282ba3a53426b7af9dca2bd0bc03c');
+
 }
 
 .auth-inner {
@@ -93,6 +95,5 @@ th,
 td {
   border: 1px solid black !important;
 }
-
 
 

@@ -1,8 +1,23 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
+import LoadingSpinner from "D:/_Bala_project/homework-hub-react/src/components/LoadingSpinner";
+
 
 export default function Login() {
   const [rollnum, setrollnum] = useState("");
   const [password, setpassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,67 +46,72 @@ export default function Login() {
           window.localStorage.setItem("rollnum", data.result.user.rollnum);
           window.localStorage.setItem("usertype", data.result.user.usertype);
 
-          // window.localStorage.setItem("loggedIn", true);
+          window.localStorage.setItem("loggedIn", true);
           console.log(data.result);
 
-
-          window.location.href = "./dashboard";
+          navigate('/dashboard');
         }
-        else{
+        else {
           alert(data.message);
         }
       });
   }
 
-  return (
-    <div className="auth-wrapper">
-      <div className="auth-inner">
-        <form onSubmit={handleSubmit}>
-          <h3>Sign In</h3>
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+  else {
 
-          <div className="mb-3">
-            <label>Roll number</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter Rollnumber"
-              onChange={(e) => setrollnum(e.target.value)}
-            />
-          </div>
+    return (
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <form onSubmit={handleSubmit}>
+            <h3>Sign In</h3>
 
-          <div className="mb-3">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-              onChange={(e) => setpassword(e.target.value)}
-            />
-          </div>
-
-          <div className="mb-3">
-            <div className="custom-control custom-checkbox">
+            <div className="mb-3">
+              <label>Roll number</label>
               <input
-                type="checkbox"
-                className="custom-control-input"
-                id="customCheck1"
+                type="text"
+                className="form-control"
+                placeholder="Enter Rollnumber"
+                onChange={(e) => setrollnum(e.target.value)}
               />
-              <label className="custom-control-label" htmlFor="customCheck1">
-                Remember me
-              </label>
             </div>
-          </div>
 
-          <div className="d-grid">
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
-          <p className="forgot-password text-right">
-            <a href="/sign-up">Sign Up</a>
-          </p>
-        </form>
+            <div className="mb-3">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter password"
+                onChange={(e) => setpassword(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <div className="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  id="customCheck1"
+                />
+                <label className="custom-control-label" htmlFor="customCheck1">
+                  Remember me
+                </label>
+              </div>
+            </div>
+
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </div>
+            <p className="forgot-password text-right">
+              <a href="/sign-up">Sign Up</a>
+            </p>
+          </form>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

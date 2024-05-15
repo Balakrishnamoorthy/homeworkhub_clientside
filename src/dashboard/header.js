@@ -1,5 +1,6 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import axios from 'axios';
+import './dashboard.css';
 
 
 
@@ -22,33 +23,33 @@ function Header() {
     }
   }, []);
 
-  function logout(){
+  const logout=()=>{
     window.localStorage.clear();
-    window.location.href = "./sign-in";
+    window.location.href = "/sign-in";
   }
 
 
 
-  const [photoUrl, setPhotoUrl] = useState('D:/_Bala_project/login-registration-main/src/assets/profile_bg.jpg');
+  const [photoUrl, setPhotoUrl] = useState('https://cdn-icons-png.flaticon.com/512/9131/9131529.png');
 
-  useEffect(() => {
-    // Fetch photo from the database
-    const fetchPhoto = async () => {
+  // useEffect(() => {
+  //   // Fetch photo from the database
+  //   const fetchPhoto = async () => {
 
-      try {
-        // const response = "D:/_Bala_project/login-registration-main/src/assets/profile_bg.jpg";
-        // setPhotoUrl(response);
+  //     try {
+  //       // const response = "D:/_Bala_project/login-registration-main/src/assets/profile_bg.jpg";
+  //       // setPhotoUrl(response);
 
-        const response = await axios.get('your_database_api_endpoint');
-        // Assuming your API returns a JSON object with a 'photoUrl' property
-        setPhotoUrl(response.data.photoUrl);
-      } catch (error) {
-        console.error('Error fetching photo:', error);
-      }
-    };
+  //       const response = await axios.get('your_database_api_endpoint');
+  //       // Assuming your API returns a JSON object with a 'photoUrl' property
+  //       setPhotoUrl(response.data.photoUrl);
+  //     } catch (error) {
+  //       console.error('Error fetching photo:', error);
+  //     }
+  //   };
 
-    fetchPhoto(); // Call the fetch function when the component mounts
-  }, []);
+  //   fetchPhoto(); // Call the fetch function when the component mounts
+  // }, []);
 
 
 
@@ -58,23 +59,24 @@ function Header() {
         <div>
           {usertype === 'faculty' ?
             (
-              <nav classname="storke">
+              <nav className="storke">
                 <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Create Room</a></li>
-                  <li><a href="#">Join Room</a></li>
-                  <li><a href="#">My room</a></li>
+                  <li className="homelink"><a href="/home">Home</a></li>
+                  <li className="homelink"><a href="/dashboard">Dashbboard</a></li>
+                  <li className="homelink"><a href="/dashboard/createroom">Create Room</a></li>
+                  <li className="homelink"><a href="/dashboard/joinroom">Join Room</a></li>
+                  <li className="homelink"><a href="/dashboard/myroom">My room</a></li>
                 </ul>
               </nav>
             )
             :
             (
-              <nav>
+              <nav className="storke">
                 <ul>
-                  <li><a href="#">Home</a></li>
-                  {/* <li><a href="#">Create Room</a></li> */}
-                  <li><a href="#">Join Room</a></li>
-                  <li><a href="#">My room</a></li>
+                  <li className="homelink"><a href="/home">Home</a></li>
+                  <li className="homelink"><a href="/dashboard">Dashbboard</a></li>
+                  <li className="homelink"><a href="/dashboard/joinroom">Join Room</a></li>
+                  <li className="homelink"><a href="/dashboard/myroom">My room</a></li>
                 </ul>
               </nav>
             )}
@@ -83,16 +85,18 @@ function Header() {
           {/* Display the fetched photo */}
 
         </div>
-        <div class="user-details">
+        <div className="user-details">
+          <img src={photoUrl} alt="User" />
 
            <div>
-            <p class="username">{username}</p>
+            <p className="username">{username}</p>
           
-            <p class="usertype">{usertype}</p>
+            <p className="usertype">{usertype}</p>
+            
           </div>
-          <img src={photoUrl} alt="User" />
+          <button className='btn logout' onClick={logout}>Logout</button>
          
-          <button className='logout' >Logout</button>
+          
         </div>
       </header>
 

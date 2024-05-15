@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Dashbody() {
     const [usertype, setusertype] = useState('');
+    
 
     useEffect(() => {
         const storedType = window.localStorage.getItem('usertype');
@@ -23,17 +24,17 @@ function Dashbody() {
                 </p>
             </div>
             <div className="room-button">
-                {usertype === 'Admin' ?
+                {usertype === 'faculty' ?
                     (
                         <div>
-                            <button type="submit" classname="createroom">
-                            <Link className="link" to="createroom">Create Room</Link>
+                            <button type="submit" className="room">
+                            <Link className="roomlink" to="createroom">Create Room</Link>
                             </button>
-                            <button type='submit' classname="joinroom">
-                            <Link className="link" to="joinroom">Join Room</Link>
+                            <button type='submit' className="room">
+                            <Link className="roomlink" to="joinroom">Join Room</Link>
                             </button>
-                            <button type='submit' classname="myroom">
-                            <Link className="link" to="myroom">My Room</Link>
+                            <button type='submit' className="room">
+                            <Link className="roomlink" to="myroom">My Room</Link>
                             </button>
                         </div>
                     ) :
@@ -42,11 +43,11 @@ function Dashbody() {
                             {/*  <button type="submit" classname="createroom">
                                Create Room
                              </button> */}
-                            <button type='submit' classname="joinroom">
-                            <Link className="link" to="joinroom">Join Room</Link>
+                            <button type='submit' className="room">
+                            <Link className="joinlink" to="joinroom">Join Room</Link>
                             </button>
-                            <button type='submit' classname="myroom">
-                            <Link className="link" to="myroom">My Room</Link>
+                            <button type='submit' className="room">
+                            <Link className="mylink" to="myroom">My Room</Link>
                             </button>
                         </div>
 
