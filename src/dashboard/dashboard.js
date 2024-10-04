@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from './header.js';
 import Dashbody from './dashbody.js';
-import './dashboard.css';
-import LoadingSpinner from "D:/_Bala_project/homework-hub-react/src/components/LoadingSpinner";
+import LoadingSpinner from '../components/LoadingSpinner';
+
 
 
 const Dashboard = () => {

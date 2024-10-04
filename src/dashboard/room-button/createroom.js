@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../header';
-import LoadingSpinner from "D:/_Bala_project/homework-hub-react/src/components/LoadingSpinner";
+import LoadingSpinner from '../../components/LoadingSpinner';
+
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from '../header';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
-import LoadingSpinner from "D:/_Bala_project/homework-hub-react/src/components/LoadingSpinner";
 
 export default function Joinroom() {
   const [invitecode, setinvitecode] = useState('')

@@ -3,7 +3,8 @@ import Header from '../header';
 
 import Button from '@mui/material/Button';
 import { useLocation, useNavigate } from 'react-router-dom';
-import LoadingSpinner from "D:/_Bala_project/homework-hub-react/src/components/LoadingSpinner";
+import LoadingSpinner from '../../components/LoadingSpinner';
+
 
 export default function Homework() {
   const location = useLocation();

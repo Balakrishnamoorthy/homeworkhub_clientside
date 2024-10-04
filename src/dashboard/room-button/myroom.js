@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Header from '../header';
-import LoadingSpinner from "D:/_Bala_project/homework-hub-react/src/components/LoadingSpinner";
+import LoadingSpinner from '../../components/LoadingSpinner';
+
 
 export default function Myroom() {
 
