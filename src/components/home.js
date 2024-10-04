@@ -26,9 +26,9 @@ export default function Home() {
                     <div className="navbar">
                         <ul className="unlist">
                             <li className="homelink"><a className="alink" href="/home">Home</a></li>
-                            <li className="homelink"><a className="alink" href="#">Features</a></li>
-                            <li className="homelink"><a className="alink" href="#">About</a></li>
-                            <li className="homelink"><a className="alink" href="#">Contact</a></li>
+                            <li className="homelink"><a className="alink" href="/home">Features</a></li>
+                            <li className="homelink"><a className="alink" href="/home">About</a></li>
+                            <li className="homelink"><a className="alink" href="/home">Contact</a></li>
                         </ul>
 
                         <div className="signup-btn ">

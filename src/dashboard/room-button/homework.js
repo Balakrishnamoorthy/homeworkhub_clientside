@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useCallback } from "react";
 import Header from '../header';
 
 import Button from '@mui/material/Button';
@@ -14,11 +14,11 @@ export default function Homework() {
   const [student, setstudent] = useState('');
   const [token, settoken] = useState('');
   const [subject, setsubject] = useState([]);
-  const [sub, setsub] = useState('');
+  // const [sub, setsub] = useState('');
   const [roomname, setroomname] = useState('');
   const [users, setusers] = useState(location.state?.users);
-  const rollnumber = window.localStorage.getItem('rollnum');
-  var [head, sethead] = useState(location.state?.head);
+  // const rollnumber = window.localStorage.getItem('rollnum');
+  var [head] = useState(location.state?.head);
   const [posted, setposted] = useState('');
   const usertype = window.localStorage.getItem('usertype');
 
@@ -54,7 +54,7 @@ export default function Homework() {
 
   /*used to access an inner array */
 
-  const usersArrays = userdata.map(item => item);
+  // const usersArrays = userdata.map(item => item);
   // console.log(usersArrays, "users");
 
 
@@ -240,7 +240,7 @@ export default function Homework() {
   };
 
 
-  const handleFileUpload = () => {
+  const handleFileUpload = useCallback(() => {
     if (file) {
       // const file = selectedFile;
       // new FormData();
@@ -270,11 +270,11 @@ export default function Homework() {
 
 
     }
-  };
-
-  useEffect(() => {
-    handleFileUpload();
   }, [file, homework_id]);
+
+  // useEffect(() => {
+  //   handleFileUpload();
+  // }, [file, homework_id]);
 
   /*code to view previous posted homework by student to  faculty*/
 
@@ -406,7 +406,7 @@ export default function Homework() {
                       <div className="subdis ">{item.subdis}</div>
                       <div className="sub-date">{item.createdAt}</div>
                       <div>
-                        {item.upload == true &&
+                        {item.upload === true &&
                           <button onClick={() => view(item.hworks, item.subname, item.subdis)}>view</button>}
                       </div>
 
@@ -428,7 +428,7 @@ export default function Homework() {
                     <div className="subname">{item.subname}</div>
                     <div className="subdis ">{item.subdis}</div>
                     <div>
-                      {item.upload == true &&
+                      {item.upload === true &&
                         <div>
                           <input type="file" name="file" id="file" className="inputfile" accept=".pdf, .doc, .docx" onChange={(event) => handleFileChange(event, item._id)} />
 

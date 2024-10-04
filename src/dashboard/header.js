@@ -1,5 +1,4 @@
 import React, {  useEffect, useState } from 'react';
-import axios from 'axios';
 import './dashboard.css';
 
 
@@ -30,7 +29,7 @@ function Header() {
 
 
 
-  const [photoUrl, setPhotoUrl] = useState('https://cdn-icons-png.flaticon.com/512/9131/9131529.png');
+  const [photoUrl] = useState('https://cdn-icons-png.flaticon.com/512/9131/9131529.png');
 
   // useEffect(() => {
   //   // Fetch photo from the database

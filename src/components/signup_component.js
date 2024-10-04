@@ -1,4 +1,4 @@
-import React, { Component, useState ,useEffect} from "react";
+import React, {  useState ,useEffect} from "react";
 import { useNavigate } from 'react-router-dom'
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -26,7 +26,7 @@ export default function SignUp() {
 
 
   const handleSubmit = (e) => {
-    if (usertype == "faculty" && secretKey != "MCA") {
+    if (usertype === "faculty" && secretKey !== "MCA") {
       e.preventDefault();
       alert("Invalid faculty");
     } else {
@@ -52,7 +52,7 @@ export default function SignUp() {
         .then((res) => res.json())
         .then((data) => {
           console.log(data, "userRegister");
-          if (data.success == true) {
+          if (data.success === true) {
             alert(data.message);
             navigate('/sign-in');
           } else {
@@ -91,7 +91,7 @@ export default function SignUp() {
               />
               Student
             </div>
-            {usertype == "faculty" ? (
+            {usertype === "faculty" ? (
               <div className="mb-3">
                 <label>Secret Key</label>
                 <input

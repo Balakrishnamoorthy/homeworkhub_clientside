@@ -62,7 +62,7 @@ export default function Createroom() {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          if (data.success == true) {
+          if (data.success === true) {
             setinvitecode(data.result.invitecode)
             setIsLoading(false)
           }

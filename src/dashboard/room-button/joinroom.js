@@ -49,7 +49,7 @@ export default function Joinroom() {
       .then((data) => {
         console.log(data);
         alert(data.message);
-        if (data.success == true) {
+        if (data.success === true) {
           window.location.href = "./myroom";
         }
         else {

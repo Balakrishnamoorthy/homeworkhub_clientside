@@ -9,7 +9,7 @@ export default function Hwview() {
     const hwork = location.state?.data;
     const subname = location.state?.name;
     const subdis = location.state?.dis;
-    const [checked, setChecked] = useState(false);
+    const [checked] = useState(false);
     const [token, settoken] = useState('')
     const [user_id, setuserid] = useState('')
 
@@ -30,7 +30,7 @@ export default function Hwview() {
 
     useEffect(()=>{
         setuserid(hwork.user);
-    },[])
+    },[hwork.user])
 
     console.log(user_id,"userid");
 

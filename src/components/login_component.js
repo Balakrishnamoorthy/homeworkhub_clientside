@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -40,7 +40,7 @@ export default function Login() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "userRegister");
-        if (data.success == "true") {
+        if (data.success === "true") {
           alert(data.message);
           window.localStorage.setItem("token", data.result.token);
           window.localStorage.setItem("username", data.result.user.name);

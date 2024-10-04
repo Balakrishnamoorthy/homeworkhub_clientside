@@ -20,6 +20,7 @@ export default function Myroom() {
     return () => clearTimeout(timer);
   }, []);
 
+console.log(token,roomName);
 
   useEffect(() => {
     const savedToken = window.localStorage.getItem('token');
