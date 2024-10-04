@@ -10,16 +10,55 @@ export default function Hwview() {
     const subname = location.state?.name;
     const subdis = location.state?.dis;
     const [checked, setChecked] = useState(false);
+    const [token, settoken] = useState('')
+    const [user_id, setuserid] = useState('')
 
     console.log(hwork, "work");
     console.log(checked);
+
+    useEffect(() => {
+        const storedToken = window.localStorage.getItem('token');
+        if (storedToken) {
+          settoken(storedToken);
+        }
+      }, []);
 
     const openFile=(file)=>{
         window.open(`http://localhost:3004/files/${file}`);
 
     }
+
+    useEffect(()=>{
+        setuserid(hwork.user);
+    },[])
+
+    console.log(user_id,"userid");
+
+    function hwchecked() {
+    
+        fetch("http://localhost:3004/homeworkupdate", {
+          method: "POST",
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            user_id,
+            token
+          }),
+        })
+    
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            
+          });
+      }
+      
     return (
-        <div className="hwview-body">
+        <div className="background">
             <div>
                 <Header />
             </div>
@@ -39,6 +78,9 @@ export default function Hwview() {
                     <div className="view">
                         <label className="heading">To view</label>
                     </div>
+                    <div className="Checked">
+                        {/* <label className="heading">Checked</label> */}
+                    </div>
                 </div>
                 {hwork && hwork.map((item, index) => (
                     <div className="table">
@@ -52,8 +94,9 @@ export default function Hwview() {
                             <div className="view">
                                 <Button variant="info" onClick={()=>openFile(item.work)}>View Doc</Button>
                             </div>
-
-                            <MDBSwitch id='flexSwitchCheckDefault' onChange={setChecked=="True"} />
+                            <div className="checked">
+                            <MDBSwitch id='flexSwitchCheckDefault' onClick={()=>hwchecked()} />
+                            </div>
                         </div>
                     </div>
                 ))}

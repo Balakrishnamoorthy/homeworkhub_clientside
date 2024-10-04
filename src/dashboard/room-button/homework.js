@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from '../header';
+
+import Button from '@mui/material/Button';
 import { useLocation, useNavigate } from 'react-router-dom';
 import LoadingSpinner from "D:/_Bala_project/homework-hub-react/src/components/LoadingSpinner";
 
@@ -143,6 +145,32 @@ export default function Homework() {
     setupload('');
   };
 
+  /*code to Send Homework to students*/
+
+  const SendHomeWork = () => {
+    console.log(roomname, "user check");
+    console.log(token, "user check");
+
+    fetch("http://localhost:3004/Whatsapp", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        token,
+        roomname
+      }),
+    })
+
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.message);
+      });
+
+  }
 
   /*code to fetch previous posted homework for faculty*/
   const post = () => {
@@ -266,7 +294,7 @@ export default function Homework() {
   else {
 
     return (
-      <div className="homework-body">
+      <div className="background">
 
         {/*Header component*/}
         <div><Header /></div>
@@ -316,7 +344,7 @@ export default function Homework() {
                       />
                     </div>
 
-                    <div>
+                    <div className="Post">
                       <label>Any document to upload</label>
 
                       <input
@@ -341,11 +369,18 @@ export default function Homework() {
                       <lable>No</lable>
                     </div>
 
-                    <button className="btn btn-primary btn-sm" type="submit">Post</button>
+                    <div className="Post">
+                      <Button variant="contained" type="submit" >Post</Button>
+                    </div>
+
+                    <div className="Post">
+                      <Button variant="contained" onClick={() => SendHomeWork()} >Send Homework</Button>
+                    </div>
+
                   </form>
 
 
-                  {/* Code to display homework just for faculty refrence */}
+                  {/* Code to display homework just for faculty reference */}
 
                   {posted ? (
                     <div>
@@ -361,8 +396,9 @@ export default function Homework() {
 
 
                   {/* Code for faculty to view their previous posted works */}
-                  <button onClick={() => post()}>Previous posted</button>
-
+                  <div className="Post">
+                    <Button variant="contained" onClick={() => post()}>Previous posted</Button>
+                  </div>
                   {subject && subject.map((item, index) => (
                     <div key={index} className="name-dis">
                       <div className="subname">{item.subname}</div>

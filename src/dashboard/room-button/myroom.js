@@ -66,6 +66,7 @@ export default function Myroom() {
   }
   else {
     return (
+      <div className="background">
       <div className="myroom-body">
         <div>
           <Header />
@@ -75,6 +76,7 @@ export default function Myroom() {
             <button key={index} className="grid-item" onClick={() => Homework(item.roomname, item.roomhead, item.users)}>{item.roomname}</button>
           ))}
         </div>
+      </div>
       </div>
     );
   }

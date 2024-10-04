@@ -141,10 +141,10 @@ nav ul li a:hover {
   position: relative;
   align-items: center;
   top: 200px;
-  left: 20%;
+  left: 15%;
   width: 70%;
   height: 250px;
-  background-color:  #d15c5cdb ;
+  background-color: #d15c5cdb;
   border-radius: 5px;
   padding: 20px;
   justify-content: center;
@@ -152,16 +152,15 @@ nav ul li a:hover {
   font-weight: 350;
   /* box-shadow: 0px 14px 80px 14px #d15c5c;
   box-shadow: 0px 14px 100px 14px #d15c5c; */
-  
-box-shadow:  #d15c5c 0px 6px 12px -2px,  #d15c5c 0px 3px 7px -3px;
-box-shadow: #d15c5c 0px 14px 28px, #d15c5c 0px 10px 10px;
-box-shadow: #d15c5c 0px 30px 90px;
-  color:#ffc8a3 ;
-  
+  box-shadow: #d15c5c 0px 6px 12px -2px, #d15c5c 0px 3px 7px -3px;
+  box-shadow: #d15c5c 0px 14px 28px, #d15c5c 0px 10px 10px;
+  box-shadow: #d15c5c 0px 30px 90px;
+  color: #ffc8a3;
+
 }
 
 
-.dis-heading{
+.dis-heading {
   font-size: large;
   font-weight: 800;
   color: #000000;
@@ -169,24 +168,25 @@ box-shadow: #d15c5c 0px 30px 90px;
 
 
 
-@media (max-width: 768px) {
-  .discription {
-    top: 50px;
-    height: auto;
-  }
+@media screen and (max-width: 991px) {
+  
 
   .dashbody {
-    display: flex;
+    display: block;
+    /* grid-template-rows: 1fr 1fr; */
   }
-  body{
-    overflow: auto;
+
+   .discription{
+    top: 150px;
   }
+
+ 
 }
 
 /* Room Buttons design */
 
 
-.room  {
+.room {
   align-items: center;
   background-color: #a074c9;
   border: 0;
@@ -194,7 +194,6 @@ box-shadow: #d15c5c 0px 30px 90px;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  display: inline;
   flex-direction: column;
   font-size: 16px;
   font-weight: 700;
@@ -208,7 +207,12 @@ box-shadow: #d15c5c 0px 30px 90px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  position: static;
+  position: relative;
+  top: 50%;
+}
+
+.room-div {
+  position: absolute;
   top: 50%;
 }
 
@@ -220,7 +224,7 @@ box-shadow: #d15c5c 0px 30px 90px;
   outline: 0;
 }
 
-.room  span {
+.room span {
   transition: all 200ms;
 }
 
@@ -230,21 +234,53 @@ box-shadow: #d15c5c 0px 30px 90px;
 }
 
 @media screen and (max-width: 991px) {
-  .room  {
+  .room {
     font-size: 15px;
     height: 50px;
   }
 
-  .room  span {
+  .room span {
     line-height: 50px;
+  }
+
+  .room-div{
+    top: 70%;
+    left: 15%;
   }
 }
 
-/**/
+/*CreateRoom*/
+
+.crateroom-body {
+  background-size: cover;
+  /* margin-top: -70px; */
+  background-repeat: no-repeat;
+  background-image: url(https://img.freepik.com/premium-photo/indian-asian-school-kids-uniform-studying-hard-from-books-classroom_466689-95578.jpg?w=740);
+  height: 100vb;
+}
+
+.CreateRoom{  
+  height: 100vb;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.RoomName{
+  position:relative;
+  top:40%;
+  left: 25%;
+  width: 250px;
+  height: 100px;
+}
+
 .content {
   border-radius: 20px;
-  background-color: #363636a9;
+  background-color:#d15c5c;
+  position: relative;
   width: 500px;
+  top: 7%;
+  left: 10%;
+  height: 400px;
   margin-top: 100px;
   color: #ffffff;
   text-align: justify;
@@ -275,15 +311,6 @@ box-shadow: #d15c5c 0px 30px 90px;
 }
 
 
-
-.crateroom-body {
-  background-size: cover;
-  /* margin-top: -70px; */
-  background-repeat: no-repeat;
-  background-image: url(https://img.freepik.com/premium-photo/indian-asian-school-kids-uniform-studying-hard-from-books-classroom_466689-95578.jpg?w=740);
-  height: 100vb;
-}
-
 .joinroom-body {
   background-size: cover;
   /* margin-top: -70px; */
@@ -292,15 +319,11 @@ box-shadow: #d15c5c 0px 30px 90px;
   height: 100vb;
 }
 
-.myroom-body {
-  background-size: cover;
-  /* margin-top: -70px; */
-  background-repeat: no-repeat;
-  background-image: url(https://img.freepik.com/premium-photo/indian-asian-school-kids-uniform-studying-hard-from-books-classroom_466689-95578.jpg?w=740);
-  height: 100vb;
-  font-family: "Poppins", sans-serif;
+.JoinPara{
+  padding-top: 50px;
 }
 
+/* For homework */
 .homework-body {
   background-size: cover;
   /* margin-top: -70px; */
@@ -318,16 +341,20 @@ box-shadow: #d15c5c 0px 30px 90px;
 }
 
 .grid-item {
-  background-color: #ffffffcb;
+  background-color: #d15c5c;
   padding: 20px;
+  height: 100px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: #000000;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-size: large;
 }
 
 .container {
   border-radius: 10px;
-  background-color: hsla(0, 0%, 21%, 0.663);
+  background-color: #d15c5c60;
   width: 200px;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -344,7 +371,7 @@ box-shadow: #d15c5c 0px 30px 90px;
 
 .nav-bar {
   flex: 0 0 auto;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color:#a074c979;
   padding: 15px;
   margin-left: 30px;
   border-radius: 10px;
@@ -366,7 +393,7 @@ box-shadow: #d15c5c 0px 30px 90px;
   overflow-y: auto;
   max-height: 425px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.463);
+  background-color:#d15c5c60;
   margin: 0px 5px;
   border-radius: 10px;
   width: 60%;
@@ -380,12 +407,16 @@ box-shadow: #d15c5c 0px 30px 90px;
 
 .right-list {
   flex: 0 0 auto;
-  background-color: rgba(255, 255, 255, 0.056);
+  background-color: #a074c979;
   padding: 15px;
   margin-right: 10px;
   border-radius: 10px;
   width: 20%;
   height: auto;
+}
+
+.Post{
+  margin: 10px;
 }
 
 ul {
@@ -450,6 +481,7 @@ li {
   padding-left: 5px;
 }
 
+/* For homework view */
 .hwview-body {
   background-size: cover;
   /* margin-top: -70px; */
@@ -484,7 +516,7 @@ li {
 }
 
 .row {
-  color: #ffffff;
+  color: #000000;
   margin: 10px;
 
 }
@@ -502,7 +534,12 @@ li {
 
 .view {
   float: left;
-  width: 30%;
+  width: 20%;
+}
+
+.checked{
+  float: left;
+  width: 10%;
 }
 
 .toggle {
@@ -514,7 +551,3 @@ li {
   text-decoration: underline;
   font-size: large;
 }
-
-
-
-
