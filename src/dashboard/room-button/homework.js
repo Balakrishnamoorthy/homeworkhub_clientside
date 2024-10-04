@@ -270,7 +270,7 @@ export default function Homework() {
 
 
     }
-  }, [file, homework_id]);
+  }, [file, homework_id,token]);
 
   // useEffect(() => {
   //   handleFileUpload();
