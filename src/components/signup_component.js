@@ -33,7 +33,7 @@ export default function SignUp() {
       e.preventDefault();
 
       console.log(name, rollnum, phone, password);
-      fetch("http://localhost:3004/register", {
+      fetch("https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/register", {
         method: "POST",
         crossDomain: true,
         headers: {

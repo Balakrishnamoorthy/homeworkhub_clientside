@@ -31,7 +31,7 @@ export default function Joinroom() {
     e.preventDefault();
 
     console.log(invitecode);
-    fetch("http://localhost:3004/joinroom", {
+    fetch("https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/joinroom", {
       method: "POST",
       crossDomain: true,
       headers: {

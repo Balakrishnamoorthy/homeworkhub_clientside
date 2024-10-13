@@ -115,7 +115,7 @@ export default function Homework() {
     console.log(subname, subdis, upload);
 
     e.preventDefault();
-    fetch("http://localhost:3004/homeworkpost", {
+    fetch("https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/homeworkpost", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -152,7 +152,7 @@ export default function Homework() {
     console.log(roomname, "user check");
     console.log(token, "user check");
 
-    fetch("http://localhost:3004/Whatsapp", {
+    fetch("https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/Whatsapp", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -176,7 +176,7 @@ export default function Homework() {
   /*code to fetch previous posted homework for faculty*/
   const post = () => {
 
-    fetch("http://localhost:3004/facultyhomework", {
+    fetch("https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/facultyhomework", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -206,7 +206,7 @@ export default function Homework() {
 
   const studentwork = () => {
 
-    fetch("http://localhost:3004/totalhomework", {
+    fetch("https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/totalhomework", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -255,7 +255,7 @@ export default function Homework() {
 
       /*Checking wheather the parameters aligned correcly*/
 
-      fetch('http://localhost:3004/studentupload', {
+      fetch('https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/studentupload', {
         method: 'POST',
         body: formData,
       })

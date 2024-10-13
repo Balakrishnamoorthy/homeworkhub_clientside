@@ -24,7 +24,7 @@ export default function Hwview() {
       }, []);
 
     const openFile=(file)=>{
-        window.open(`http://localhost:3004/files/${file}`);
+        window.open(`https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/files/${file}`);
 
     }
 
@@ -36,7 +36,7 @@ export default function Hwview() {
 
     function hwchecked() {
     
-        fetch("http://localhost:3004/homeworkupdate", {
+        fetch("https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/homeworkupdate", {
           method: "POST",
           crossDomain: true,
           headers: {

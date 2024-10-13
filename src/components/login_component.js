@@ -24,7 +24,7 @@ export default function Login() {
     e.preventDefault();
 
     console.log(rollnum, password);
-    fetch("http://localhost:3004/login", {
+    fetch("https://435de11b-0111-4742-b1ff-6024437904a3.e1-us-east-azure.choreoapps.dev/login", {
       method: "POST",
       crossDomain: true,
       headers: {
